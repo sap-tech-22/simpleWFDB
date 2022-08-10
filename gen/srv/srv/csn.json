@@ -1,0 +1,108 @@
+{
+  "namespace": "wfTransferReq.db",
+  "definitions": {
+    "wfTransferReq.db.ReqHeader": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "sender": {
+          "type": "cds.String"
+        },
+        "totalAmt": {
+          "type": "cds.Integer"
+        },
+        "balance": {
+          "type": "cds.Integer"
+        },
+        "apprStat": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "wfTransferReq.db.ReqItem": {
+      "kind": "entity",
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CN": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "receiver": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    },
+    "CatalogService": {
+      "@source": "srv/catalog-service.cds",
+      "kind": "service"
+    },
+    "CatalogService.ReqHeader": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "wfTransferReq.db.ReqHeader"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "sender": {
+          "type": "cds.String"
+        },
+        "totalAmt": {
+          "type": "cds.Integer"
+        },
+        "balance": {
+          "type": "cds.Integer"
+        },
+        "apprStat": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "CatalogService.ReqItem": {
+      "kind": "entity",
+      "projection": {
+        "from": {
+          "ref": [
+            "wfTransferReq.db.ReqItem"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "CN": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "receiver": {
+          "type": "cds.String"
+        },
+        "amount": {
+          "type": "cds.Integer"
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v2.15.8",
+    "flavor": "inferred"
+  },
+  "$version": "2.0"
+}
