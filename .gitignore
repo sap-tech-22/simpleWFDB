@@ -2,6 +2,7 @@
 /node_modules/
 /resources/
 node_modules/
+gen/
 dist/
 .scp/
 .env
